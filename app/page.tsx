@@ -19,7 +19,7 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <div className="flex flex-col items-center bg-[#3AAB57] px-[150px] py-[74px]">
+      <div className="flex flex-col items-center bg-[#3AAB57] px-[150px] py-[74px] pt-32">
         <h1 className="font-bold text-4xl text-white leading-tight text-center md:text-4xl">
           Nikmatilah Layanan Yang Ada Di <span className="bg-white text-[#3AAB57] p-2 rounded-xl">Yhoiki</span>
         </h1>
