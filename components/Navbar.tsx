@@ -150,8 +150,8 @@ export default function Navbar() {
             <Link href="#" className="text-gray-700 hover:text-green-600 font-medium flex items-center gap-1 py-2 px-3 rounded-md transition">
               <Globe size={16} /> EN
             </Link>
-            <Link href="#" className="text-gray-700 hover:bg-gray-100 font-medium py-2 px-3 rounded-md transition">Sign In</Link>
-            <Link href="#" className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 text-white px-4 py-2 rounded font-semibold transition">
+            <Link href="/login" className="text-gray-700 hover:bg-gray-100 font-medium py-2 px-3 rounded-md transition">Sign In</Link>
+            <Link href="/register" className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 text-white px-4 py-2 rounded font-semibold transition">
               Register
             </Link>
           </div>
