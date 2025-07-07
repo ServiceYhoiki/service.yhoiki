@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "DESIGN UI/UX",
+        "description": "A service that provides various functionalities.",
+        "Gambar": "/image/Design.png",
+        "icon": "/image/Yhoiki2.png",
+        "link": "/pesan-layanan/design-ui-ux"
+    },
+    {
+        "id": 2,
+        "name": "WEBSITE",
+        "description": "Analytics service for Yhoiki platform.",
+        "Gambar": "/image/Design.png",
+        "icon": "/image/Yhoiki2.png",
+        "link": "/pesan-layanan"
+
+    },
+    {
+        "id": 3,
+        "name": "HOSTING",
+        "description": "Service for sending notifications to users.",
+        "Gambar": "/image/Design.png",
+        "icon": "/image/Yhoiki2.png",
+        "link": "/pesan-layanan"
+    }
+]
