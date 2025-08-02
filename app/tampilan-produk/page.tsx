@@ -4,13 +4,48 @@ import Opsi from './opsi';
 import Image from 'next/image';
 import { useState } from 'react';
 import { ShoppingCart } from 'lucide-react';
+import Swiper from 'swiper';
+import 'swiper/css';
+
+// const swiper = new Swiper('.swiper', {
+//   slidesPerView: 1,
+//   spaceBetween: 10,
+//   pagination: {
+//     el: '.swiper-pagination',
+//     clickable: true,
+//   },
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   },
+//   breakpoints: {
+//     640: {
+//       slidesPerView: 2,
+//       spaceBetween: 20,
+//     },
+//     768: {
+//       slidesPerView: 3,
+//       spaceBetween: 30,
+//     },
+//     1024: {
+//       slidesPerView: 4,
+//       spaceBetween: 40,
+//     },
+//   },
+// });
 
 interface GalleryImage {
   id: number;
   src: string;
   alt: string;
 }
-
+const ratings = [
+  { value: 5, color: 'bg-yellow-400', width: 'w-[90%]' },
+  { value: 4, color: 'bg-green-500', width: 'w-[85%]' },
+  { value: 3, color: 'bg-yellow-400', width: 'w-[70%]' },
+  { value: 2, color: 'bg-red-400', width: 'w-[30%]' },
+  { value: 1, color: 'bg-red-400', width: 'w-[30%]' },
+]
 const galleryImages: GalleryImage[] = [
   { id: 1, src: '/image/Produk.png', alt: 'gambar 1' },
   { id: 2, src: '/image/Produk.png', alt: 'gambar 2' },
@@ -238,6 +273,7 @@ export default function TampilanProduk() {
             +1<br />Projects
           </div>
         </div>
+        <Opsi />
       </div>
 
     {/*Compare Package*/}
@@ -247,11 +283,11 @@ export default function TampilanProduk() {
         <table className="min-w-full text-center border-collapse">
           <thead>
             <tr>
-              <th className="w-52 h-32 bg-gray-100 text-gray-400 text-left p-4">Package</th>
+              <th className="w-52 h-32 bg-gray-100 text-gray-400 text-left p-4 ">Package</th>
               {packages.map((p, i) => (
-                <th key={i} className="p-4">
+                <th key={i} className="p-4 border-l border-gray-700">
                   <div className={`p-4 rounded-xl shadow-md w-32 h-32 text-left font-bold ${i === 0 ? 'bg-purple-100' : i === 1 ? 'bg-yellow-100' : 'bg-blue-100'}`}>
-                    <p className="font-bold">{p.name}</p>
+                    <p className="font-bold ">{p.name}</p>
                     <p className="text-[7px] text-gray-600 mb-2">Our Most Populer Plan.</p>
                     <button className="bg-green-500 text-white px-4 mt-5 rounded-full font-semibold">
                       {p.price}
@@ -261,41 +297,41 @@ export default function TampilanProduk() {
               ))}
             </tr>
           </thead>
-          <tbody className="[&_tr:nth-child(odd)]:bg-green-50">
+          <tbody className="[&_tr:nth-child(odd)]:bg-green-600">
             <tr>
               <td className="text-left p-4 bg-green-600 text-white font-bold text-sm ">User Research And Personas</td>
               {packages.map((p, i) => (
-                <td key={i} className="p-4">{p.User_research_and_persona ? '✓' : '—'}</td>
+                <td key={i} className="p-4 font-bold text-white border-l border-gray-700">{p.User_research_and_persona ? '✓' : '—'}</td>
               ))}
             </tr>
             <tr>
               <td className="text-left p-4 bg-white text-gray-500 font-bold text-sm">Prototype</td>
               {packages.map((p, i) => (
-                <td key={i} className="p-4">{p.prototype ? '✓' : '—'}</td>
+                <td key={i} className="p-4 font-bold border-l border-gray-700">{p.prototype ? '✓' : '—'}</td>
               ))}
             </tr>
             <tr className="">
-              <td className="text-left p-4 bg-green-600 text-white font-bold text-sm">UI Design</td>
+              <td className="text-left p-4 bg-green-600 text-white font-bold text-sm ">UI Design</td>
               {packages.map((p, i) => (
-                <td key={i} className="p-4">{p.ui_design ? '✓' : '—'}</td>
+                <td key={i} className="p-4 font-bold text-white border-l border-gray-700">{p.ui_design ? '✓' : '—'}</td>
               ))}
             </tr>
             <tr>
               <td className="text-left p-4 bg-white text-gray-500 font-bold text-sm">Source File</td>
               {packages.map((p, i) => (
-                <td key={i} className="p-4">{p.source_file ? '✓' : '—'}</td>
+                <td key={i} className="p-4 font-bold border-l border-gray-700">{p.source_file ? '✓' : '—'}</td>
               ))}
             </tr>
             <tr>
               <td className="text-left p-4 bg-green-600 text-white font-bold text-sm">Number Of Page Or Screens</td>
               {packages.map((p, i) => (
-                <td key={i} className="p-4">{p.number_of_page_or_screen}</td>
+                <td key={i} className="p-4 font-bold text-white border-l border-gray-700">{p.number_of_page_or_screen}</td>
               ))}
             </tr>
             <tr>
               <td className="text-left p-4 bg-white text-gray-500 font-bold text-sm">Revisions</td>
               {packages.map((p, i) => (
-                <td key={i} className="p-4">{p.revisions}</td>
+                <td key={i} className="p-4 font-bold border-l border-gray-700">{p.revisions}</td>
               ))}
             </tr>
           </tbody>
@@ -491,8 +527,101 @@ export default function TampilanProduk() {
         </div>
       </div>
     </div>
+
+    {/* Rating */}
+    <div>
+      <h2 className='font-bold text-xl'>Reviews</h2>
+      <div className='flex flex-row gap-9 mt-7'>
+          <h2 className='font-bold text-5xl'>4,7</h2>
+          <div className='flex flex-col'>
+            <div className='flex-row flex'>
+              <Image
+                src={"/image/Star5.png"}
+                width={40}
+                quality={100}
+                height={40}
+                alt=''
+              ></Image>
+              <Image
+                src={"/image/Star5.png"}
+                width={40}
+                quality={100}
+                height={40}
+                alt=''
+              ></Image>
+              <Image
+                src={"/image/Star5.png"}
+                width={40}
+                quality={100}
+                height={40}
+                alt=''
+              ></Image>
+              <Image
+                src={"/image/Star5.png"}
+                width={40}
+                quality={100}
+                height={40}
+                alt=''
+              ></Image>
+              <Image
+                src={"/image/Star17.png"}
+                width={40}
+                quality={100}
+                height={40}
+                alt=''
+              ></Image>
+            </div>
+              <p>(1170 reviews)</p>
+          </div>
       </div>
-      <Opsi />
+      <div className="space-y-2 mt-10">
+      {ratings.map((rating) => (
+        <div key={rating.value} className="flex items-center space-x-2">
+          <span className="w-4 text-sm">{rating.value}</span>
+          <div className="flex-1 h-4 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className={`h-4 ${rating.width} ${rating.color} rounded-full`}
+            ></div>
+          </div>
+        </div>
+      ))}
+    </div>
+    </div>
+    {/* Komentar */}
+    <div className='flex flex-col border rounded-2xl mt-10 py-5 w-[740px]'>
+      <div className='border-b-2 border-gray-600 pb-5'>
+        <h1 className='ml-20'>Kipin Sadbor</h1>
+        <div className='flex flex-row items-center gap-2 ml-20'>
+          <p className='font-bold'>5</p>
+          <div className='flex flex-row items-center gap-0.5'>
+            <Image
+              src={"/image/indo.png"}
+              width={20}
+              height={20}
+              alt='Rating'
+            ></Image>
+            <p className='text-gray-500 text-[12px]'>Indonesia</p>
+          </div>
+        </div>
+      </div>
+      <div className='pt-2.5 ml-5 gap-2'>
+        <div className='flex flex-row gap-0.5 items-center'>
+          {[...Array(5)].map((_, index) => (
+            <Image
+              key={index}
+              src='/image/Star5.png'
+              width={20}
+              height={20}
+              alt={`Star ${index + 1}`}
+              quality={100}
+            />
+          ))}
+          <p className='text-[10px] text-gray-500 '>3 days ago</p>
+        </div>
+        <p>SUMATO company is a great collaborative team, they have high commitment and professionalism to every detail, very strict project monitoring, their Director, Mr. Owais, has a great level of communication, their Design Operations team, Mr. Talha, has an extraordinary commitment to detail and quality.</p>
+      </div>
+    </div>
+      </div>
     </div>
   );
 }
