@@ -1,39 +1,8 @@
 'use client';
-import { prototype } from 'events';
 import Opsi from './opsi';
 import Image from 'next/image';
 import { useState } from 'react';
 import { ShoppingCart } from 'lucide-react';
-import Swiper from 'swiper';
-import 'swiper/css';
-
-// const swiper = new Swiper('.swiper', {
-//   slidesPerView: 1,
-//   spaceBetween: 10,
-//   pagination: {
-//     el: '.swiper-pagination',
-//     clickable: true,
-//   },
-//   navigation: {
-//     nextEl: '.swiper-button-next',
-//     prevEl: '.swiper-button-prev',
-//   },
-//   breakpoints: {
-//     640: {
-//       slidesPerView: 2,
-//       spaceBetween: 20,
-//     },
-//     768: {
-//       slidesPerView: 3,
-//       spaceBetween: 30,
-//     },
-//     1024: {
-//       slidesPerView: 4,
-//       spaceBetween: 40,
-//     },
-//   },
-// });
-
 interface GalleryImage {
   id: number;
   src: string;
